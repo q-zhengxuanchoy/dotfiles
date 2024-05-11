@@ -1,0 +1,35 @@
+# prompt theme
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
+
+# fuzzy finder
+eval "$(fzf --zsh)"
+
+# better ls replacement
+alias ld='eza -lD'
+alias lf='eza -lf --color=always | grep -v /'
+alias lh='eza -dl .* --group-directories-first'
+alias ll='eza -al --group-directories-first'
+alias lst='eza -alf --color=always --sort=size | grep -v /'
+alias ls='eza --icons=always'
+alias lt='eza -al --sort=modified'
+
+# eza completion
+export FPATH="~/eza/completions/zsh:$FPATH"
+
+# history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# better cd replacement
+eval "$(zoxide init zsh --cmd cd)"
+
+# terminal greeter with neofetch
+neofetch
