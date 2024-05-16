@@ -1,9 +1,12 @@
 -- set default python host for molten depending on OS
 if vim.fn.has("win32:") > 0 then
 	vim.g.python3_host_prog = "C:/Users/ZhengXuanChoy/miniconda3/envs/neovim/python.exe"
+-- TODO: move to a pyenv poetry env
 elseif vim.fn.has("mac") > 0 then
-	vim.g.python3_host_prog = "/opt/homebrew/Caskroom/miniconda/base/envs/neovim/bin/python"
+	vim.g.python3_host_prog = vim.fn.expand("/Users/q-zhengxuanchoy/Developer/python/neovim/.venv/bin/python")
 end
+
+-- backup tree
 vim.g.netrw_liststyle = 3
 
 local opt = vim.opt -- for conciseness
