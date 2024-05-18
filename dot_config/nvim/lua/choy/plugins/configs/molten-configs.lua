@@ -24,3 +24,17 @@ keymap.set(
 	":<C-u>MoltenEvaluateVisual<CR>gv",
 	{ silent = true, desc = "evaluate visual selection" }
 )
+-- TODO: fix the pattern matching logic
+keymap.set("n", "<localleader>ip", function()
+	local venv = os.getenv("VIRTUAL_ENV")
+	print(venv)
+	if venv ~= nil then
+		-- in the form of /home/benlubas/.virtualenvs/VENV_NAME
+		-- venv = string.match(venv, "/.+/(.+)")
+		venv = string.match(venv, "/.+/.+")
+		print(venv)
+		vim.cmd(("MoltenInit %s"):format(venv))
+	else
+		vim.cmd("MoltenInit python3")
+	end
+end, { desc = "Initialize Molten based on venv", silent = true })

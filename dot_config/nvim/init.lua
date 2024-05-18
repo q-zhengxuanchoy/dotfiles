@@ -18,5 +18,7 @@ require("choy.lazy")
 -- kanagawa
 -- cyberdream
 vim.cmd.colorscheme("cyberdream")
+vim.cmd("PetsNew Ping")
+vim.cmd("PetsNewCustom dog black Pong")
 -- require("arrow.persist").load_cache_file()
 -- TODO: implement noice alongside fidget. implement metals
